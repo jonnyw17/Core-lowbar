@@ -1,0 +1,31 @@
+{
+  "name": "core-lowbar",
+  "version": "1.0.0",
+  "description": "reimplementation of lowbar",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./spec/",
+    "lint": "eslint --fix ./",
+    "posttest": "npm run lint",
+    "precommit": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonnyw17/Core-lowbar.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jonnyw17/Core-lowbar/issues"
+  },
+  "homepage": "https://github.com/jonnyw17/Core-lowbar#readme",
+  "dependencies": {
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "husky": "^0.14.3",
+    "mocha": "^4.0.1",
+    "sinon": "^4.0.1"
+  }
+}
