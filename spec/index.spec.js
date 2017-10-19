@@ -29,7 +29,7 @@ describe('_.identity', () => {
   });
 
 /** ***************VALUES*****************/
- describe.only('_.values', () => {
+ describe('_.values', () => {
    it('is a function', () => {
      expect(_.values).to.be.a('function');
    });
@@ -55,12 +55,31 @@ describe('_.identity', () => {
  });
 
 /** ***************FIRST*****************/
-
-describe('_.first', () => {
-  it('_.first is a function', () => {
-    expect(_.first).to.be.a('function');
+describe('#first', function () {
+    it('is a function', function () {
+      expect(_.first).to.be.a('function');
+    });
+    it('returns undefined if not passed a valid input', () => {
+      expect(_.first([])).to.eql(undefined);
+      expect(_.first('')).to.eql(undefined);
+      expect(_.first(undefined)).to.eql(undefined);
+      expect(_.first(null)).to.eql(undefined);
+      expect(_.first(1)).to.eql(undefined);
+    });
+    it('returns the first value of a given array when n is not defined', () => {
+      expect(_.first([5, 4, 3, 2, 1])).to.equal(5);
+    });
+    it('retuns an array of the first n values from input array when n is passed as second argument', () => {
+      expect(_.first([5, 4, 3, 2, 1], 3)).to.eql([5, 4, 3]);
+    });
+    it('returns an empty array if n is a number less than 1', () => {
+      expect(_.first([5, 4, 3, 2, 1], 0)).to.eql([]);
+      expect(_.first([5, 4, 3, 2, 1], -1)).to.eql([]);
+    });
+    it('returns an empty array if n is not a number', () => {
+      expect(_.first([5, 4, 3, 2, 1], [])).to.eql([]);
+      expect(_.first([5, 4, 3, 2, 1], {})).to.eql([]);
+      expect(_.first([5, 4, 3, 2, 1], true)).to.eql([]);
+      expect(_.first([5, 4, 3, 2, 1], 'hello')).to.eql([]);
+    });
   });
-  it('returns undefined not passed an array with a length greater than 0', () => {
-    expect(_.first()).to.eql();
-  });
-});
